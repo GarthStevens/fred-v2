@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 
-export default async function Home() {
+export default async function ReportPage() {
   const client = await createClient();
 
   const { data: { user } } = await client.auth.getUser();
