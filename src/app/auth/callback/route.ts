@@ -10,7 +10,12 @@ export async function GET(request: Request) {
 
   if (code) {
     const supabase = await createClient()
-    const { error } = await supabase.auth.exchangeCodeForSession(code)
+    const { error, data } = await supabase.auth.exchangeCodeForSession(code)
+
+    const groups = data.user?.user_metadata?.custom_claims?.groups ?? []
+    const isAdmin = groups?.includes(process.env.ADMIN_GROUP_ID!)
+    // TODO: store "isAdmin" in the db?
+
     if (!error) {
       const forwardedHost = request.headers.get('x-forwarded-host') // original origin before load balancer
       const isLocalEnv = process.env.NODE_ENV === 'development'
