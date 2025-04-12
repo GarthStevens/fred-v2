@@ -5,12 +5,12 @@ import { LeftSidebar } from "@/components/left-sidebar";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 
-import "./globals.css";
 import { PropsWithChildren } from "react";
 import { SearchTriggerButton } from "@/components/search-trigger-button";
 import { Button } from "@/components/ui/button";
-import { SaveIcon, ViewIcon } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { EllipsisIcon, FileWarning, SaveIcon, ViewIcon } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -72,6 +72,21 @@ export default async function RootLayout(props: Props) {
                   <Button size="sm" variant="outline">
                     <ViewIcon /> Preview
                   </Button>
+
+                  <Button size="sm" variant="outline">
+                    <FileWarning /> Issues
+                  </Button>
+
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button size="icon" variant="outline">
+                        <EllipsisIcon />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuItem>Complete</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </header>
 

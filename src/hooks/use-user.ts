@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { User } from '@supabase/supabase-js';
 import { createClient } from '@/lib/supabase/client';
 
@@ -44,5 +44,26 @@ export function useUser() {
     };
   }, []);
 
-  return { user, loading, error };
+  const name = useMemo(() => {
+    if (!user) return null;
+    const claims = user.user_metadata?.custom_claims ?? null
+
+
+    if (!claims) return null;
+    const givenName = claims.given_name ?? '';
+    const familyName = claims.family_name ?? '';
+    const groups = claims.groups ?? []
+    const initials = `${givenName.charAt(0)}${familyName.charAt(0)}`;
+    const isAdmin = groups?.includes(process.env.NEXT_PUBLIC_ADMIN_GROUP_ID!)
+
+    return {
+      givenName,
+      familyName,
+      displayName: `${givenName} ${familyName}`,
+      initials,
+      isAdmin,
+    };
+  }, [user]);
+
+  return { user: { ...user, ...name }, loading, error };
 }
