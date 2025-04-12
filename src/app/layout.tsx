@@ -7,6 +7,10 @@ import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/s
 
 import "./globals.css";
 import { PropsWithChildren } from "react";
+import { SearchTriggerButton } from "@/components/search-trigger-button";
+import { Button } from "@/components/ui/button";
+import { SaveIcon, ViewIcon } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +42,7 @@ export default async function RootLayout(props: Props) {
             <LeftSidebar />
 
             <SidebarInset>
-              <header className="sticky top-0 flex shrink-0 items-center gap-2 border-b p-4">
+              <header className="sticky top-0 flex shrink-0 items-center gap-2 border-b p-4 justify-between">
                 <div className="flex h-4 items-center gap-2">
                   <SidebarTrigger className="-ml-1" />
                   <Separator orientation="vertical" className="mr-2 h-4" />
@@ -55,9 +59,25 @@ export default async function RootLayout(props: Props) {
                     </BreadcrumbList>
                   </Breadcrumb>
                 </div>
+
+                <div className="flex h-4 items-center gap-2">
+                  <SearchTriggerButton />
+
+                  <Separator orientation="vertical" className="mx-2 h-4" />
+
+                  <Button size="sm">
+                    <SaveIcon /> Save
+                  </Button>
+
+                  <Button size="sm" variant="outline">
+                    <ViewIcon /> Preview
+                  </Button>
+                </div>
               </header>
 
-              {children}
+              <div className="flex-1 overflow-y-scroll p-4">
+                {children}
+              </div>
             </SidebarInset>
           </SidebarProvider>
         </main>
