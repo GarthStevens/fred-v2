@@ -16,6 +16,7 @@ export async function GET(request: Request) {
     const isAdmin = groups?.includes(process.env.ADMIN_GROUP_ID!)
     // TODO: store "isAdmin" in the db?
     console.log('isAdmin', isAdmin)
+    console.log(data.user)
 
     if (!error) {
       const forwardedHost = request.headers.get('x-forwarded-host') // original origin before load balancer

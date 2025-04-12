@@ -7,12 +7,9 @@ export default async function Home() {
   const { data: { user } } = await client.auth.getUser();
   return (
     <div >
-      <main >
-        {/* <pre>
+        <pre>
           {JSON.stringify(user, null, 2)}
-        </pre> */}
-        <LogoutButton />
-      </main>
+        </pre>
     </div>
   );
 }
