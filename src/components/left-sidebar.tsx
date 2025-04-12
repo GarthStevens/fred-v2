@@ -1,5 +1,3 @@
-'use client'
-
 import Link from "next/link";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail } from "@/components/ui/sidebar";
 import { NavUser } from "./nav-user";
@@ -34,7 +32,6 @@ export function LeftSidebar() {
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
-
         </SidebarMenu>
       </SidebarHeader>
 

@@ -34,12 +34,11 @@ export default async function RootLayout(props: Props) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <main className="relative flex h-screen">
-          <SidebarProvider>
+          <SidebarProvider defaultOpen={false}>
             <LeftSidebar />
 
             <SidebarInset>
-              <header className="sticky top-0 flex shrink-0 items-center gap-2 border-b bg-background p-4">
-
+              <header className="sticky top-0 flex shrink-0 items-center gap-2 border-b p-4">
                 <SidebarTrigger className="-ml-1" />
                 <Separator orientation="vertical" className="mr-2 h-4" />
 
@@ -54,12 +53,10 @@ export default async function RootLayout(props: Props) {
                     </BreadcrumbItem>
                   </BreadcrumbList>
                 </Breadcrumb>
-
               </header>
 
               {children}
             </SidebarInset>
-
           </SidebarProvider>
         </main>
       </body>

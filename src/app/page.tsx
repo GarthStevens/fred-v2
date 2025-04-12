@@ -8,9 +8,9 @@ export default async function Home() {
   return (
     <div >
       <main >
-        <pre>
+        {/* <pre>
           {JSON.stringify(user, null, 2)}
-        </pre>
+        </pre> */}
         <LogoutButton />
       </main>
     </div>
