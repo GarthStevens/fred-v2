@@ -1,15 +1,15 @@
+import { ReportDetailsForm } from "@/components/report-details-form";
+import { ReportJobDetailsForm } from "@/components/report-job-details-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Form, FormField, FormItem } from "@/components/ui/form";
-import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Sidebar, SidebarContent, SidebarHeader, SidebarProvider } from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarHeader } from "@/components/ui/sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ExternalLink } from "lucide-react";
 
 export default function ReportPage() {
   return (
-    <div className="flex flex-row h-full">
-      <div className="flex-1 overflow-y-scroll  p-4">
+    <div className="flex flex-row h-full overflow-hidden">
+      <div className="flex-1 p-4 overflow-y-scroll">
         <Tabs defaultValue="details">
           <TabsList>
             <TabsTrigger value="details">Details</TabsTrigger>
@@ -17,7 +17,6 @@ export default function ReportPage() {
           </TabsList>
 
           <TabsContent value="details" className="space-y-4">
-
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 justify-between">
@@ -27,16 +26,14 @@ export default function ReportPage() {
                     <ExternalLink />
                   </Button>
                 </CardTitle>
+
+                <CardDescription>
+                  These details are readonly. To make changes, modify from within HubSpot, and then reload this page.
+                </CardDescription>
               </CardHeader>
 
               <CardContent>
-                {/* <Form >
-                  <FormField name="propertyType">
-                    <FormItem>
-                    </FormItem>
-                  </FormField>
-                </Form> */}
-
+                <ReportJobDetailsForm />
               </CardContent>
             </Card>
 
@@ -46,27 +43,7 @@ export default function ReportPage() {
               </CardHeader>
 
               <CardContent>
-
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Property Details</CardTitle>
-              </CardHeader>
-
-              <CardContent>
-
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Contact Details</CardTitle>
-              </CardHeader>
-
-              <CardContent>
-
+                <ReportDetailsForm />
               </CardContent>
             </Card>
           </TabsContent>
