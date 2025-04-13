@@ -1,18 +1,9 @@
 import { Header } from "@/components/header";
 import { SearchTriggerButton } from "@/components/search-trigger-button";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Separator } from "@/components/ui/separator";
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { createClient } from "@/lib/supabase/server";
-import { EllipsisIcon, FileWarning, SaveIcon, ViewIcon } from "lucide-react";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb";
 import Link from "next/link";
 
-export default async function Home() {
-  const client = await createClient();
-
-  const { data: { user } } = await client.auth.getUser();
+export default function Home() {
   return (
     <>
       <Header
@@ -45,7 +36,6 @@ export default async function Home() {
         </div>
       </div>
     </>
-
   );
 }
 

@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Form, FormField, FormItem } from "@/components/ui/form";
 import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Sidebar, SidebarContent, SidebarHeader, SidebarProvider } from "@/components/ui/sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ExternalLink } from "lucide-react";
 
 export default function ReportPage() {
   return (
@@ -15,6 +17,29 @@ export default function ReportPage() {
           </TabsList>
 
           <TabsContent value="details" className="space-y-4">
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 justify-between">
+                  Job Details
+                  <Button variant="link">
+                    Open in HubSpot
+                    <ExternalLink />
+                  </Button>
+                </CardTitle>
+              </CardHeader>
+
+              <CardContent>
+                {/* <Form >
+                  <FormField name="propertyType">
+                    <FormItem>
+                    </FormItem>
+                  </FormField>
+                </Form> */}
+
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>Report Details</CardTitle>
