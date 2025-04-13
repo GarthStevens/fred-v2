@@ -65,9 +65,8 @@ export default async function RootLayout(props: Props) {
         )}
       />
 
-      <div className="flex-1 overflow-y-scroll p-4">
-        {children}
-      </div>
+      {children}
+
     </>
   );
 }

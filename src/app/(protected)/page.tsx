@@ -32,11 +32,16 @@ export default async function Home() {
         )}
       />
 
-      <div className="flex-1 overflow-y-scroll p-4">
-        <div >
-          <pre>
-            {JSON.stringify(user, null, 2)}
-          </pre>
+      <div className="flex-1 overflow-y-scroll p-4 flex flex-col items-center justify-center">
+        <div className="max-w-md w-full text-center space-y-6">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tight">Welcome to Fred</h1>
+            <p className="text-muted-foreground">Get started by opening a report</p>
+          </div>
+
+          <div className="w-full max-w-sm mx-auto">
+            <SearchTriggerButton />
+          </div>
         </div>
       </div>
     </>
